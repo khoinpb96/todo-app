@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 70px 0 40px;
+}
+
+.header h1 {
+  color: white;
+  font-size: 36px;
+  letter-spacing: 0.7rem;
+  cursor: pointer;
+}
+.header .darkMobeBtn {
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

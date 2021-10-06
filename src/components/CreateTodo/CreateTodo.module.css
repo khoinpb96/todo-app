@@ -1,0 +1,25 @@
+.createTodoContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 22px;
+  margin-bottom: 20px;
+}
+.createTodoInput {
+  outline: none;
+  border: none;
+  width: calc(100% - 23px);
+  font-size: 1rem;
+  padding-left: 20px;
+}
+.mark {
+  height: 22px;
+  width: 22px;
+  border: 0.1px solid #00000029;
+  border-radius: 50%;
+}
