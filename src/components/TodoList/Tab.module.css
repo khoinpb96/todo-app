@@ -1,0 +1,84 @@
+.tab,
+.tabDark {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 22px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+.tabDark {
+  color: rgba(255, 255, 255, 0.5);
+}
+.tabList {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+}
+.tabList label {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.tabDark .tabList label {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.tabList label:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.tabDark .tabList label:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tabList input {
+  display: none;
+}
+
+.tabList input:checked ~ p {
+  color: hsl(220, 98%, 61%);
+}
+
+.clearBtn {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.clearBtn:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.tabDark .clearBtn:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tabDark .tabList {
+  background: #25273c;
+}
+
+@media (max-width: 768px) {
+  .tabList {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(3.5rem);
+    justify-content: center;
+    font-size: 0.8rem;
+    background: white;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+    padding: 12px 22px;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
+    transition: 0.3s;
+  }
+  .clearBtn:active {
+    color: rgba(0, 0, 0, 0.85);
+  }
+  .tabDark .clearBtn:active {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}

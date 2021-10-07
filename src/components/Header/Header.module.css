@@ -10,10 +10,31 @@
   font-size: 36px;
   letter-spacing: 0.7rem;
   cursor: pointer;
+  animation: appear 1s;
 }
-.header .darkMobeBtn {
-  background-size: contain;
+.moonBtn,
+.sunBtn {
+  background: url(../../assets/images/icon-moon.svg);
+  background-size: cover;
   width: 24px;
   height: 24px;
   cursor: pointer;
+  transition: 0.3s;
+  animation: appear 1s;
+}
+
+.sunBtn {
+  background: url(../../assets/images/icon-sun.svg);
+  background-size: cover;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(-5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

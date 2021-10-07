@@ -7,10 +7,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
+  scroll-behavior: smooth;
 }
 
 body {
   background: url(./assets/images/bg-desktop-light.jpg) no-repeat;
   min-height: 300px;
   text-align: center;
+  transition: 0.3s;
+}
+.darkMode {
+  background: url(./assets/images/bg-desktop-dark.jpg) #181824 no-repeat;
 }

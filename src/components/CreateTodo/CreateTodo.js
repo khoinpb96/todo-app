@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./CreateTodo.module.css";
 
-export default function CreateTodo({ addTodo }) {
+export default function CreateTodo({ addTodo, darkMode }) {
   const [inputVal, setInputVal] = useState("");
 
   function inputChangeHandler(e) {
@@ -9,13 +9,29 @@ export default function CreateTodo({ addTodo }) {
   }
   function formSubmitHandler(e) {
     e.preventDefault();
-    inputVal &&
-      addTodo({
-        name: inputVal,
-        completed: false,
-      });
+    inputVal && addTodo(inputVal);
+    setInputVal("");
   }
-  return (
+
+  const darkModeForm = (
+    <form
+      onSubmit={formSubmitHandler}
+      className={styles.createTodoContainerDark}
+      id="createTodoContainer"
+    >
+      <div className={styles.markDark} />
+      <input
+        type="text"
+        id="input"
+        onChange={inputChangeHandler}
+        value={inputVal}
+        className={styles.createTodoInputDark}
+        placeholder="Create a new todo..."
+      />
+      <div className={styles.enterBtnDark}></div>
+    </form>
+  );
+  const lightModeForm = (
     <form onSubmit={formSubmitHandler} className={styles.createTodoContainer}>
       <div className={styles.mark} />
       <input
@@ -26,6 +42,8 @@ export default function CreateTodo({ addTodo }) {
         className={styles.createTodoInput}
         placeholder="Create a new todo..."
       />
+      <div className={styles.enterBtn} onClick={formSubmitHandler}></div>
     </form>
   );
+  return darkMode ? darkModeForm : lightModeForm;
 }

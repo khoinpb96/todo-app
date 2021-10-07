@@ -1,79 +1,58 @@
+import Tab from "./Tab";
+import Todo from "./Todo";
 import styles from "./TodoList.module.css";
 
 export default function TodoList({
   data,
   deleteTodo,
-  todoSelected,
+  toggleTaskCompleted,
+  clearCompletedTodo,
   filterTodo,
-  completingTodo,
+  darkMode,
 }) {
-  return (
-    <>
-      <div className={styles.todoContainer}>
-        {data.length > 0 ? (
-          data.map((todo, index) => (
-            <div className={styles.todo} key={index}>
-              <label htmlFor={index}>
-                <input type="checkbox" id={index} onClick={completingTodo} />
-                <div className={styles.checkmark} />
-              </label>
-              <p>{todo.name}</p>
-              <div
-                className={styles.deleteBtn}
-                onClick={deleteTodo}
-                id={index}
-              />
-            </div>
-          ))
-        ) : (
-          <div className={styles.todo}>
-            <label>
-              <input type="checkbox" disabled />
-              <div className={styles.checkmark} />
-            </label>
-            <p style={{ color: `rgba(0,0,0,.5)` }}>What's your plan today?</p>
-          </div>
-        )}
-        <div className={styles.tab}>
-          <div>{data.length} items left</div>
-          <ul className={styles.tabList}>
-            <li
-              style={
-                todoSelected.all
-                  ? { color: "#3A7BFD" }
-                  : { color: "rgba(0, 0, 0, 0.3)" }
-              }
-              onClick={filterTodo.showAllTodo}
-            >
-              All
-            </li>
-            <li
-              style={
-                todoSelected.active
-                  ? { color: "#3A7BFD" }
-                  : { color: "rgba(0, 0, 0, 0.3)" }
-              }
-              onClick={filterTodo.showActiveTodo}
-            >
-              Active
-            </li>
-            <li
-              style={
-                todoSelected.completed
-                  ? { color: "#3A7BFD" }
-                  : { color: "rgba(0, 0, 0, 0.3)" }
-              }
-              onClick={filterTodo.showCompletedTodo}
-            >
-              Completed
-            </li>
-          </ul>
-          <div className={styles.clearBtn}>Clear Completed</div>
-        </div>
-      </div>
-      <p style={{ fontSize: "14px", marginTop: 46, color: "rgba(0,0,0,.4)" }}>
-        Drag and drop to reoder list
+  const fakeTodo = (
+    <div className={styles.todo}>
+      <label>
+        <input type="checkbox" disabled />
+        <div className={styles.checkmark} />
+      </label>
+      <p
+        style={
+          !darkMode
+            ? { color: `rgba(0,0,0,.5)` }
+            : { color: `rgba(255,255,255,.5)` }
+        }
+      >
+        What's your plan today?
       </p>
-    </>
+    </div>
+  );
+
+  return (
+    <div
+      className={!darkMode ? styles.todoContainer : styles.todoContainerDark}
+      id="todoContainer"
+    >
+      {data.length > 0
+        ? data.map((todo) => (
+            <Todo
+              key={todo.id}
+              id={todo.id}
+              name={todo.name}
+              deleteTodo={deleteTodo}
+              toggleTaskCompleted={toggleTaskCompleted}
+              completed={todo.completed}
+              darkMode={darkMode}
+            />
+          ))
+        : fakeTodo}
+
+      <Tab
+        data={data}
+        clearCompletedTodo={clearCompletedTodo}
+        filterTodo={filterTodo}
+        darkMode={darkMode}
+      />
+    </div>
   );
 }
