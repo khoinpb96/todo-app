@@ -1,6 +1,4 @@
 import styles from "./Header.module.css";
-import moonIcon from "../../assets/images/icon-moon.svg";
-import sunIcon from "../../assets/images/icon-sun.svg";
 
 export default function Header({ darkModeToggle, darkMode }) {
   return (
