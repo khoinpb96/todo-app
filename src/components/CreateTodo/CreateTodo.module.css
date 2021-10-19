@@ -13,11 +13,13 @@
   transition: 0.3s;
   animation: appear 1.5s;
 }
+
 .createTodoContainerDark {
   background: #25273c;
 }
-.createTodoInput,
-.createTodoInputDark {
+
+.createTodoContainer input,
+.createTodoContainerDark input {
   outline: none;
   border: none;
   width: calc(100% - 40px);
@@ -25,21 +27,10 @@
   padding-left: 20px;
   transition: 0.3s;
 }
-.createTodoInputDark {
+
+.createTodoContainerDark input {
   background: #25273c;
   color: rgba(255, 255, 255, 0.8);
-}
-.createTodoInputDark {
-  outline: none;
-  border: none;
-  width: calc(100% - 40px);
-  font-size: 1rem;
-  padding-left: 20px;
-}
-
-.createTodoInput::placeholder,
-.createTodoInputDark::placeholder {
-  transform: translateY(2px);
 }
 
 .mark,
@@ -50,9 +41,11 @@
   border-radius: 50%;
   transition: 0.3s;
 }
+
 .markDark {
   border: 0.1px solid #fcfcfc29;
 }
+
 .enterBtn,
 .enterBtnDark {
   height: 22px;
@@ -63,6 +56,7 @@
   animation: bounce 1s infinite;
   transition: 0.3s;
 }
+
 .enterBtnDark {
   background: url(../../assets/images/enter-btn-dark.svg);
   background-size: cover;

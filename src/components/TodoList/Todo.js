@@ -7,9 +7,10 @@ export default function Todo({
   toggleTaskCompleted,
   completed,
   darkMode,
+  onAllTab,
 }) {
-  return !darkMode ? (
-    <div className={styles.todo}>
+  return (
+    <div className={!darkMode ? styles.todo : styles.todoDark}>
       <label htmlFor={id}>
         {completed ? (
           <input
@@ -25,32 +26,15 @@ export default function Todo({
             onChange={() => toggleTaskCompleted(id)}
           />
         )}
+
         <div className={styles.checkmark} />
+
         <p>{name}</p>
       </label>
-      <div className={styles.deleteBtn} onClick={() => deleteTodo(id)} />
-    </div>
-  ) : (
-    <div className={styles.todoDark}>
-      <label htmlFor={id}>
-        {completed ? (
-          <input
-            type="checkbox"
-            id={id}
-            onChange={() => toggleTaskCompleted(id)}
-            defaultChecked
-          />
-        ) : (
-          <input
-            type="checkbox"
-            id={id}
-            onChange={() => toggleTaskCompleted(id)}
-          />
-        )}
-        <div className={styles.checkmark} />
-        <p>{name}</p>
-      </label>
-      <div className={styles.deleteBtn} onClick={() => deleteTodo(id)} />
+
+      {onAllTab ? (
+        <div className={styles.deleteBtn} onClick={() => deleteTodo(id)} />
+      ) : undefined}
     </div>
   );
 }

@@ -1,13 +1,15 @@
 .ins,
 .insDark {
   font-size: 14px;
-  margin-top: 46px;
+  margin: 46px 0;
   color: black;
   animation: appear 1s, blink 3s infinite;
 }
+
 .insDark {
   color: white;
 }
+
 @keyframes blink {
   0% {
     opacity: 0;
@@ -19,6 +21,7 @@
     opacity: 0;
   }
 }
+
 @keyframes appear {
   from {
     opacity: 0;
@@ -29,6 +32,7 @@
     transform: translateY(0);
   }
 }
+
 @media (max-width: 768px) {
   .ins,
   .insDark {

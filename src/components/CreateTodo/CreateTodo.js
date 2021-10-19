@@ -7,43 +7,32 @@ export default function CreateTodo({ addTodo, darkMode }) {
   function inputChangeHandler(e) {
     setInputVal(e.target.value);
   }
+
   function formSubmitHandler(e) {
     e.preventDefault();
     inputVal && addTodo(inputVal);
     setInputVal("");
   }
 
-  const darkModeForm = (
+  return (
     <form
       onSubmit={formSubmitHandler}
-      className={styles.createTodoContainerDark}
-      id="createTodoContainer"
+      className={
+        !darkMode ? styles.createTodoContainer : styles.createTodoContainerDark
+      }
     >
-      <div className={styles.markDark} />
-      <input
-        type="text"
-        id="input"
-        onChange={inputChangeHandler}
-        value={inputVal}
-        className={styles.createTodoInputDark}
-        placeholder="Create a new todo..."
-      />
-      <div className={styles.enterBtnDark}></div>
-    </form>
-  );
-  const lightModeForm = (
-    <form onSubmit={formSubmitHandler} className={styles.createTodoContainer}>
       <div className={styles.mark} />
       <input
         type="text"
         id="input"
         onChange={inputChangeHandler}
         value={inputVal}
-        className={styles.createTodoInput}
         placeholder="Create a new todo..."
       />
-      <div className={styles.enterBtn} onClick={formSubmitHandler}></div>
+      <div
+        className={!darkMode ? styles.enterBtn : styles.enterBtnDark}
+        onClick={formSubmitHandler}
+      ></div>
     </form>
   );
-  return darkMode ? darkModeForm : lightModeForm;
 }

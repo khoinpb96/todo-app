@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Tab from "./Tab";
 import Todo from "./Todo";
 import styles from "./TodoList.module.css";
@@ -9,6 +10,7 @@ export default function TodoList({
   clearCompletedTodo,
   filterTodo,
   darkMode,
+  onAllTab,
 }) {
   const fakeTodo = (
     <div className={styles.todo}>
@@ -43,6 +45,7 @@ export default function TodoList({
               toggleTaskCompleted={toggleTaskCompleted}
               completed={todo.completed}
               darkMode={darkMode}
+              onAllTab={onAllTab}
             />
           ))
         : fakeTodo}
